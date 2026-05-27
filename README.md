@@ -2,7 +2,7 @@
 
 A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that serves chess puzzles right in your terminal. Fetches random tactics from [ChessBout](https://www.chessbout.com), renders a board, and lets you find the best move from 4 choices.
 
-![Chess puzzle in Claude Code](assets/chess-puzzles-screenshot.png)
+<img src="assets/chess-puzzles-screenshot.png" alt="Chess puzzle in Claude Code" width="500">
 
 ## Install
 
