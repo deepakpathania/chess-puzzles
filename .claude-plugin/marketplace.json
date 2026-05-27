@@ -1,0 +1,25 @@
+{
+  "name": "chess-puzzles",
+  "owner": {
+    "name": "Deepak Pathania",
+    "url": "https://github.com/deepakpathania"
+  },
+  "plugins": [
+    {
+      "name": "chess-puzzles",
+      "source": "./",
+      "description": "Play chess puzzles from ChessBout right in your terminal — find the best move from 4 choices.",
+      "author": {
+        "name": "Deepak Pathania"
+      },
+      "repository": "https://github.com/deepakpathania/chess-puzzles",
+      "license": "MIT",
+      "keywords": [
+        "chess",
+        "puzzle",
+        "tactics",
+        "chessbout"
+      ]
+    }
+  ]
+}

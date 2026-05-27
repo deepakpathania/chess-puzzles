@@ -25,9 +25,16 @@ A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that serve
 
 ## Install
 
+Inside Claude Code, run:
+
 ```
-claude install-skill https://github.com/deepakpathania/chess-puzzles
+/plugin marketplace add deepakpathania/chess-puzzles
+/plugin install chess-puzzles
 ```
+
+That's it. The `/chess` command is now available.
+
+To uninstall: `/plugin uninstall chess-puzzles`.
 
 ## Usage
 
