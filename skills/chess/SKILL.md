@@ -29,47 +29,13 @@ Fetch a random chess puzzle from ChessBout, render the board in the terminal, an
 node ${CLAUDE_SKILL_DIR}/client.mjs fetch medium
 ```
 
-Parse the JSON output. The `puzzle` object contains: `id`, `fen`, `side_to_move`, `option_a`, `option_b`, `option_c`, `option_d`, `rating`.
+Parse the JSON output. The `puzzle` object contains: `id`, `option_a`, `option_b`, `option_c`, `option_d`, a `header` markdown line, and a `board` string (already flipped so the side to move is at the bottom).
 
 If the command fails, apologize and say puzzles are temporarily unavailable.
 
-### 2. Render the board
+### 2. Show the board
 
-Parse the FEN string and render the board as a bordered grid using box-drawing characters. Each cell is 5 characters wide with pieces centered. Flip the board so the side to move is at the bottom.
-
-Piece symbols: K=♔ Q=♕ R=♖ B=♗ N=♘ P=♙ k=♚ q=♛ r=♜ b=♝ n=♞ p=♟. Empty squares use spaces (no dot).
-
-Use these box-drawing characters:
-- Top row: `┌─────┬─────┐`
-- Middle rows: `├─────┼─────┤`
-- Bottom row: `└─────┴─────┘`
-- Cell walls: `│`
-- Horizontal fill: `─` (5 per cell)
-
-Example format (white to move, white at bottom):
-
-```
-      a     b     c     d     e     f     g     h
-   ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
- 8 │  ♜  │  ♞  │  ♝  │  ♛  │  ♚  │  ♝  │  ♞  │  ♜  │
-   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
- 7 │  ♟  │  ♟  │  ♟  │  ♟  │  ♟  │  ♟  │  ♟  │  ♟  │
-   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
- 6 │     │     │     │     │     │     │     │     │
-   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
- 5 │     │     │     │     │     │     │     │     │
-   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
- 4 │     │     │     │     │     │     │     │     │
-   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
- 3 │     │     │     │     │     │     │     │     │
-   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
- 2 │  ♙  │  ♙  │  ♙  │  ♙  │  ♙  │  ♙  │  ♙  │  ♙  │
-   ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
- 1 │  ♖  │  ♘  │  ♗  │  ♕  │  ♔  │  ♗  │  ♘  │  ♖  │
-   └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
-```
-
-Above the board, show: **Rating: {rating}** and **{side_to_move} to move — find the best move.**
+Print `puzzle.header` as plain markdown (so the bold renders). Then print `puzzle.board` verbatim inside a fenced code block. Do not re-render the board yourself.
 
 ### 3. Present the options
 
